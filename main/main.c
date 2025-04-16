@@ -63,7 +63,7 @@ static httpd_uri_t led_off_uri = {
 };
 
 void app_main(void) {
-    // Initialize NVS
+    // Initiera NVS
     esp_err_t ret = nvs_flash_init();
     if (ret == ESP_ERR_NVS_NO_FREE_PAGES || ret == ESP_ERR_NVS_NEW_VERSION_FOUND) {
       ESP_ERROR_CHECK(nvs_flash_erase());
@@ -71,10 +71,10 @@ void app_main(void) {
     }
     ESP_ERROR_CHECK(ret);
 
-    // Initialize WiFi
+    // Initiera WiFi
     wifi_init();
 
-    // Configure the LED GPIO
+    // Konfigurera the LED GPIO
     gpio_reset_pin(LED_GPIO_PIN);  // Reset the pin to a known state
     gpio_set_direction(LED_GPIO_PIN, GPIO_MODE_OUTPUT);
 
