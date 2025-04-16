@@ -3,8 +3,12 @@
     "idf.espIdfPathWin": "c:\\Users\\naser\\esp\\v5.4\\esp-idf",
     "idf.pythonInstallPath": "c:\\Users\\naser\\.espressif\\tools\\idf-python\\3.11.2\\python.exe",
     "idf.openOcdConfigs": [
-        "board/esp32-wrover-kit-3.3v.cfg"
+        "board/esp32c6-ftdi.cfg"
     ],
-    "idf.portWin": "COM10",
-    "idf.toolsPathWin": "c:\\Users\\naser\\.espressif"
+    "idf.portWin": "COM13",
+    "idf.toolsPathWin": "c:\\Users\\naser\\.espressif",
+    "idf.customExtraVars": {
+        "IDF_TARGET": "esp32c6"
+    },
+    "idf.flashType": "UART"
 }

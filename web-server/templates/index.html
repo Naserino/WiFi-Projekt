@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LED Control</title>
+    <style>
+        body{font-family:Arial,sans-serif;text-align:center;margin-top:50px}
+        button{padding:10px 20px;font-size:16px;border:none;border-radius:5px}
+        .on{background:#4CAF50;color:white}
+        .off{background:#f44336;color:white}
+    </style>
+</head>
+<body>
+    <h1>Control the LED</h1>
+    <button onclick="controlLED('on')">Turn On</button>
+    <button onclick="controlLED('off')">Turn Off</button>
+
+    <script>
+        function controlLED(state) {
+            fetch(`/led/${state}`)
+                .then(response => response.text())
+                .then(data => alert(data));
+        }
+    </script>
+</body>
+</html>
