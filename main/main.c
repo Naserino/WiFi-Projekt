@@ -10,8 +10,8 @@
 #include "esp_http_server.h"
 #include "driver/gpio.h"
 
-#define WIFI_SSID "STI Student"  // Byt ut med namnet på nätverket du är på
-#define WIFI_PASS "STI1924stu"  // Byt ut med ditt wifi lösenord
+#define WIFI_SSID "The Void"  // Byt ut med namnet på nätverket du är på
+#define WIFI_PASS "GETMEOUTFUUUCK9000"  // Byt ut med ditt wifi lösenord
 #define LED_GPIO_PIN 2  // Byt detta till vilken pin lampan e kopplad till
 
 static const char *TAG = "LED_Control";
