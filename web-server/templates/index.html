@@ -5,10 +5,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LED Control</title>
     <style>
-        body{font-family:Arial,sans-serif;text-align:center;margin-top:50px}
-        button{padding:10px 20px;font-size:16px;border:none;border-radius:5px}
-        .on{background:#4CAF50;color:white}
-        .off{background:#f44336;color:white}
+        body{
+            font-family:Arial,sans-serif;
+            text-align:center;
+            margin-top:50px;
+        }
+        button{
+            padding:10px 20px;
+            font-size:16px;
+            border:none;
+            border-radius:5px;
+            margin:5px;
+        }
+        #status {
+            width: 200px;
+            padding: 10px;
+            text-align: center;
+            margin: 20px auto;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .off {
+            background-color: red;
+            color: white;
+        }
+        .on {
+            background-color: green;
+            color: white;
+        }
     </style>
 </head>
 <body>
@@ -16,11 +40,23 @@
     <button onclick="controlLED('on')">Turn On</button>
     <button onclick="controlLED('off')">Turn Off</button>
 
+    <div id="status" class="off">Lamp is OFF</div>
+
     <script>
         function controlLED(state) {
             fetch(`/led/${state}`)
                 .then(response => response.text())
-                .then(data => alert(data));
+                .then(data => {
+                    const statusBox = document.getElementById('status');
+                    if (state === 'on') {
+                        statusBox.className = 'on';
+                        statusBox.textContent = 'Lamp is ON';
+                    } else {
+                        statusBox.className = 'off';
+                        statusBox.textContent = 'Lamp is OFF';
+                    }
+                })
+                .catch(error => console.error('Error:', error));
         }
     </script>
 </body>
